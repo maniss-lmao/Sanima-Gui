@@ -18,7 +18,7 @@
 	<div class="container">
 		<div class="forms-container">
 			<div class="signin-signup">
-				<!--  <form action="signincontroller" method="post" class="sign-in-form"> -->
+				 <form action="signincontroller" method="post" class="sign-in-form"> 
 					<h2 class="title">Sign in</h2>
 					<div class="input-field">
 						<i class="fas fa-user"></i>
@@ -35,7 +35,7 @@
     <div style="color: red;">${error}</div>
 </c:if>
 	        
-				<!--  <form action="signupcontroller" method="post" class="sign-up-form"> -->
+				  <form action="signupcontroller" method="post" class="sign-up-form"> 
     <h2 class="title">Sign up</h2>
 
     <div class="input-field">
