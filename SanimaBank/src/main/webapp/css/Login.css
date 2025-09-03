@@ -7,6 +7,7 @@ body {
     height: 100vh;
 }
 
+/* Container */
 .container {
     background: #fff;
     padding: 20px 30px;
@@ -15,11 +16,14 @@ body {
     width: 350px;
 }
 
+/* Heading */
 h2 {
     text-align: center;
     margin-bottom: 15px;
+    color: #006400; /* dark green */
 }
 
+/* Input fields */
 .input-field {
     margin-bottom: 12px;
 }
@@ -30,35 +34,57 @@ h2 {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    outline: none;
 }
 
-button {
+/* Green border when focused */
+.input-field input:focus,
+.input-field select:focus {
+    border-color: #008000 !important;
+    box-shadow: 0 0 4px rgba(0, 128, 0, 0.6) !important;
+}
+
+/* Buttons */
+button,
+button.btn {
     width: 100%;
     padding: 10px;
-    background: #007bff;
-    border: none;
-    color: white;
+    background: #008000 !important; /* green */
+    border: none !important;
+    color: white !important;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
-button:hover {
-    background: #0056b3;
+button:hover,
+button.btn:hover {
+    background: #006400 !important; /* darker green */
+    color: white !important;
 }
 
+/* Error messages */
 .error-message {
     color: red;
     margin-bottom: 10px;
     text-align: center;
 }
 
+/* Toggle form link */
 .form-toggle {
     text-align: center;
     margin-top: 10px;
 }
 
 .form-toggle a {
-    color: #007bff;
+    color: #008000 !important;
+    font-weight: bold;
     text-decoration: none;
     cursor: pointer;
+}
+
+.form-toggle a:hover {
+    color: #006400 !important;
+    text-decoration: underline;
 }

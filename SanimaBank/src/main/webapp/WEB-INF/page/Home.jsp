@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home - MyBank</title>
+    <title>Home - Sanima Bank</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Home.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <!-- Main Content -->
     <main class="home-container">
         <section class="welcome">
-            <h2>Welcome to MyBank</h2>
+            <h2>Welcome to Sanima Bank</h2>
             <p>Your trusted partner for secure and reliable banking solutions.</p>
             <a href="accounts.jsp" class="btn">View Your Accounts</a>
         </section>

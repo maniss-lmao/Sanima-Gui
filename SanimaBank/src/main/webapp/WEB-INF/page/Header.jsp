@@ -9,8 +9,9 @@
 </head>
 <body>
     <header class="bank-header">
-        <div class="logo">
-            <h1>MyBank</h1>
+        <div class="logo-container">
+         
+            <img class="logo" src="${pageContext.request.contextPath}/images/Sanima.png" alt="Bank Logo" />
         </div>
         <nav class="navbar">
             <ul>

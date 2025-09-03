@@ -16,7 +16,7 @@
 /* Welcome section */
 .welcome h2 {
     font-size: 2rem;
-    color: #003366; /* Bank theme color */
+    color: green; /* fixed */
     margin-bottom: 10px;
 }
 
@@ -30,7 +30,7 @@
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #003366;
+    background-color: green; /* fixed */
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -40,7 +40,7 @@
 
 .btn:hover {
     background-color: #ffcc00;
-    color: #003366;
+    color: green; /* fixed */
 }
 
 /* Responsive */
