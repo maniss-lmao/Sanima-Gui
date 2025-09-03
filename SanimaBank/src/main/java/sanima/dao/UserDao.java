@@ -12,22 +12,22 @@ public class UserDao {
     public UserDao() throws Exception {
         conn = Dbconfig.getDbConnection();
         if (conn == null) {
-            throw new SQLException("❌ DB connection is null.");
+            throw new SQLException(" DB connection is null.");
         } else {
-            System.out.println("✅ DB connection established.");
+            System.out.println(" DB connection established.");
             if (!conn.getAutoCommit()) {
                 conn.setAutoCommit(true);
             }
         }
     }
 
-    // ✅ DELETE USER method
+    //  DELETE USER method
     public void deleteUser(int userId) throws SQLException {
         String sql = "DELETE FROM user WHERE User_ID = ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, userId);
             int rows = ps.executeUpdate();
-            System.out.println("🗑️ Deleted user rows: " + rows);
+            System.out.println(" Deleted user rows: " + rows);
             if (rows == 0) {
                 throw new SQLException("No user found with ID: " + userId);
             }
