@@ -1,0 +1,56 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header container */
+.bank-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #003366; /* Dark blue for bank theme */
+    color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo styling */
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar styling */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffcc00; /* Golden hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bank-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}

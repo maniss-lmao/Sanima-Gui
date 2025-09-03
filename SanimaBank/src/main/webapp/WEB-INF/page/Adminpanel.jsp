@@ -1,1 +1,1 @@
-<h1>You are curretly at admin page</h1>
+<h1> Dyam you are a admin !!!!!!!</h1>

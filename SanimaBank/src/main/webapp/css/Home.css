@@ -1,0 +1,54 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page container */
+.home-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Welcome section */
+.welcome h2 {
+    font-size: 2rem;
+    color: #003366; /* Bank theme color */
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #003366;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffcc00;
+    color: #003366;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .welcome h2 {
+        font-size: 1.5rem;
+    }
+    .welcome p {
+        font-size: 1rem;
+    }
+}
