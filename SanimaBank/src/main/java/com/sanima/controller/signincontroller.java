@@ -51,7 +51,7 @@ public class signincontroller extends HttpServlet {
 
             // 
             if ("admin".equalsIgnoreCase(Usermodel.getRole())) {
-                req.getRequestDispatcher("/WEB-INF/page/Adminpanel.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/page/admin.jsp").forward(req, resp);
             } else {
                 req.getRequestDispatcher("/WEB-INF/page/Home.jsp").forward(req, resp);
             }

@@ -2,6 +2,7 @@ package sanima.dao;
 
 import com.sanima.config.Dbconfig;
 import com.sanima.Model.usermodel;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,22 +22,55 @@ public class UserDao {
         }
     }
 
-    //  DELETE USER method
-    public void deleteUser(int userId) throws SQLException {
-        String sql = "DELETE FROM user WHERE User_ID = ?";
+    // INSERT USER
+    public void insertUser(usermodel user) throws SQLException {
+        String sql = "INSERT INTO users (FirstName, LastName, Username, DOB, Gender, Email, PhoneNumber, Password, Role) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, userId);
-            int rows = ps.executeUpdate();
-            System.out.println(" Deleted user rows: " + rows);
-            if (rows == 0) {
-                throw new SQLException("No user found with ID: " + userId);
-            }
+            ps.setString(1, user.getFirstName());
+            ps.setString(2, user.getLastName());
+            ps.setString(3, user.getUsername());
+            ps.setDate(4, Date.valueOf(user.getDob()));
+            ps.setString(5, user.getGender());
+            ps.setString(6, user.getEmail());
+            ps.setString(7, user.getPhoneNumber());
+            ps.setString(8, user.getPassword());
+            ps.setString(9, user.getRole());
+
+            ps.executeUpdate();
         }
     }
 
+    // UPDATE USER
+    public void updateUser(usermodel user) throws SQLException {
+        String sql = "UPDATE users SET FirstName=?, LastName=?, Username=?, DOB=?, Gender=?, " +
+                     "Email=?, PhoneNumber=?, Password=?, Role=? WHERE UserID=?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, user.getFirstName());
+            ps.setString(2, user.getLastName());
+            ps.setString(3, user.getUsername());
+            ps.setDate(4, Date.valueOf(user.getDob()));
+            ps.setString(5, user.getGender());
+            ps.setString(6, user.getEmail());
+            ps.setString(7, user.getPhoneNumber());
+            ps.setString(8, user.getPassword());
+            ps.setString(9, user.getRole());
+            ps.setInt(10, user.getId());
 
+            ps.executeUpdate();
+        }
+    }
 
-    // (Optional) Example: get all users (used in user management page)
+    // DELETE USER
+    public void deleteUser(int userId) throws SQLException {
+        String sql = "DELETE FROM users WHERE UserID = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, userId);
+            ps.executeUpdate();
+        }
+    }
+
+    // GET ALL USERS
     public List<usermodel> getAllUsers() {
         List<usermodel> userList = new ArrayList<>();
         String sql = "SELECT * FROM users";
