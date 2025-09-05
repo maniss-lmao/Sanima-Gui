@@ -1,18 +1,17 @@
-<%@ page import="java.util.List" %>
-<%@ page import="com.sanima.Model.usermodel" %>
-<%
-    List<usermodel> userList = (List<usermodel>) request.getAttribute("userList");
-%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard</title>
+    <title>AdminDashboard</title>
     <link rel="stylesheet" type="text/css" href="css/admin.css">
 </head>
 <body>
     <header>
-        <h1>Admin Dashboard</h1>
+        <h1>AdminDashboard</h1>
     </header>
 
     <!-- Add new user form -->
@@ -56,30 +55,35 @@
             </tr>
         </thead>
         <tbody>
-            <% if(userList != null) {
-                for(usermodel user : userList) { %>
-            <tr>
-                <form action="admin" method="post">
-                    <td>
-                        <input type="hidden" name="id" value="<%= user.getId() %>">
-                        <%= user.getId() %>
-                    </td>
-                    <td><input type="text" name="firstName" value="<%= user.getFirstName() %>"></td>
-                    <td><input type="text" name="lastName" value="<%= user.getLastName() %>"></td>
-                    <td><input type="text" name="username" value="<%= user.getUsername() %>"></td>
-                    <td><input type="date" name="dob" value="<%= user.getDob() %>"></td>
-                    <td><input type="text" name="gender" value="<%= user.getGender() %>"></td>
-                    <td><input type="email" name="email" value="<%= user.getEmail() %>"></td>
-                    <td><input type="text" name="phone" value="<%= user.getPhoneNumber() %>"></td>
-                    <td><input type="password" name="password" value="<%= user.getPassword() %>"></td>
-                    <td><input type="text" name="role" value="<%= user.getRole() %>"></td>
-                    <td>
-                        <button type="submit" name="action" value="update" class="btn save-btn">Save</button>
-                        <button type="submit" name="action" value="delete" class="btn delete-btn">Delete</button>
-                    </td>
-                </form>
-            </tr>
-            <% } } %>
+            <c:if test="${not empty userList}">
+                <c:forEach var="user" items="${userList}">
+                    <form action="admin" method="post">
+                        <tr>
+                            <td>
+                                <input type="hidden" name="id" value="${user.id}">
+                                ${user.id}
+                            </td>
+                            <td><input type="text" name="firstName" value="${user.firstName}"></td>
+                            <td><input type="text" name="lastName" value="${user.lastName}"></td>
+                            <td><input type="text" name="username" value="${user.username}"></td>
+                            <td>
+                                <input type="date" name="dob"
+                                    value="<fmt:formatDate value='${user.dob}' pattern='yyyy-MM-dd'/>">
+                            </td>
+                            <td><input type="text" name="gender" value="${user.gender}"></td>
+                            <td><input type="email" name="email" value="${user.email}"></td>
+                            <td><input type="text" name="phone" value="${user.phoneNumber}"></td>
+                            <!-- Do not prefill password for security -->
+                            <td><input type="password" name="password" placeholder="Enter new password"></td>
+                            <td><input type="text" name="role" value="${user.role}"></td>
+                            <td>
+                                <button type="submit" name="action" value="update" class="btn save-btn">Save</button>
+                                <button type="submit" name="action" value="delete" class="btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    </form>
+                </c:forEach>
+            </c:if>
         </tbody>
     </table>
 </body>
